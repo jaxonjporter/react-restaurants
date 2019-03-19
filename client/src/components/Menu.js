@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, } from "semantic-ui-react";
+import { Header, Grid, Button, Icon, } from "semantic-ui-react";
 import axios from "axios"
 import MenuFood from "./MenuFood"
 
@@ -20,9 +20,15 @@ class Menu extends React.Component {
   render (){
     return (
       <div>
-        <Grid.Column width={8}>
+        <Grid.Column>
           <Header as="h2">{this.props.name}</Header>
           <MenuFood foods={this.state.foods} />
+          <Button icon color="red"
+            size="tiny"
+            onClick={() => this.props.deleteMenu(this.props.id) } 
+            style={{ marginLeft: "10px", }}>
+              <Icon name="trash" />
+          </Button>
         </Grid.Column>
 
 
